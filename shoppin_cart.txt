@@ -1,0 +1,48 @@
+======Shopping Cart Sederhana=====
+
+READ AND WRITE "cart" with empty list []
+READ AND WRITE "i" with 0
+READ AND WRITE "quantity" with number
+READ AND WRITE "option" with string
+READ AND WRITE "cart_total" with number
+
+FUNCTION shoppingcart ()
+    cart = {}
+    A = TRUE
+        PRINT "Option"
+        PRINT "1. Add Item"
+        PRINT "2. Delete Item"
+        PRINT "3. View Cart"
+        PRINT "4. Payment"
+    
+    WHILE (A=TRUE)
+        DO
+        GET option
+        B = TRUE
+            WHILE B = TRUE
+                IF option == 1 then
+                    item = customize ()
+                    qty = quantity()
+                    cart[item] = qty
+                    cart_total = cart_total + cart[item]
+                    A = TRUE
+                    B = FALSE
+                ELSE IF option == 2 then
+                    GET item
+                    DELETE(cart[item])
+                    A = TRUE
+                    B = FALSE
+                ELSE IF option == 3 then
+                    PRINT cart[item]=qty
+                    A = TRUE
+                    B = FALSE
+                ELSE IF option == 4 then
+                    payment()
+                    confirm=confirmB()
+                    A = TRUE
+                    B = FALSE
+    END WHILE
+END FUNCTION
+
+STORE "cart_total" with shoppingcart()
+PRINT cart_total
